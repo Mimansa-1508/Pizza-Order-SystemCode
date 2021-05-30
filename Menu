@@ -1,0 +1,63 @@
+void topping()
+{
+ cout<<"Topping\t\t Price\n";
+ cout<<"1.Paneer\t\t10\n"
+ cout<<"2.Capsicum\t\t 3\n";
+ cout<<".Mushroom\t\t 5\n";
+ cout<<"Jalapeno\t\t 8\n";
+ cout<<"Olives\t\t 8\n";
+ cout<<"Corn\t\t 4\n";
+ cout<<"Onion\t\t 7\n";
+ cou<<"Tomato\t\t 3\n";
+ cout<<"Sausage\t\t10\n";
+ cout<<"Pepperoni\t\t10\n\";
+ 
+ cout<<"Enter your choice of topping:";
+ cin>>
+ }
+ 
+ void slice()
+ {
+  cout<<Size\t\t No.of slices \t\t Price\n";
+  cout<<"1.Small\t\t 4\t\t 100\n";
+  cout<<"2.Medium\t\t 6\t\t 200\n";
+  cout<<"3.Large\t\t 8\t\t 400\n\n";
+  
+  cout<<"Enter your choice of no slices:";
+  cin>>
+ }
+ 
+ void sides()
+ {
+  cout<<"Item\t\t Price\n";
+  cout<<"1.Pasta\t\t 80\n";
+  cout<<"2.Choco lava\t\t 70\n";
+  cout<<"3.Garlic bread\t\t 100\n";
+  cout<<"Pepsi\t\t 60\n\n";
+  
+  cout<<"Enter your choice of sides:";
+  cin>>
+ }
+ 
+ void crust()
+ {
+  cout<<"Crust\t\t Price\n";
+  cout<<"1.Handtossed\t\t 0\n";
+  cout<<"2.Thin crust\t\t 20\n";
+  cout<<"3.Cheese burst\t\t 50\n\n";
+  
+  cout<<"Enter your choice of crust:";
+  cin>>
+  }
+  
+  void extras()
+  {
+   cout<<"Extras\t\t Price\n";
+   cout<<"1.Cheese\t\t 20\n";
+   cout<<"2.Oregano\t\t 10\n";
+   cout<<"3.Chiliflakes\t\t 10\n";
+   cout<<"4.Ketchup\t\t 10\n\n";
+   
+   cout<<"Enter your choice of extras:";
+   cin>>
+   }
