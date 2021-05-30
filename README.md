@@ -14,9 +14,6 @@ Pizza Ordering System using C++
   Paneer
   Corn
   Capsicum
-  
-  If Non veg chosen:
-  Toppings:
   Pepperoni:
   Sausage:
   Olives:
