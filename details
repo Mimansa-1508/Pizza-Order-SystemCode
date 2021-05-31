@@ -1,3 +1,11 @@
 void details()
 {
+string name,address;
+int phno;
+cout << "\nEnter your name :";  
+getline(cin,name); 
+cout<<"\nEnter phone number:";
+cin>>phno;
+cout<<"\nEnter address:";
+getline(cin,address);
 }
