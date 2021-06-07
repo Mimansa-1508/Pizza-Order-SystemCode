@@ -9,7 +9,9 @@ int main() {
      cout<<"Welcome to Pizzeria!";
      cout<<"\nPress Enter to continue";
      getch();
-    system("cls");
+    //system("cls");
+    details();
+    ffile();
 	return 0;
   }
   
@@ -25,7 +27,7 @@ cout<<"\nEnter address:";
 getline(cin,address);
 }
 
-int main(){
+void ffile(){
 ofstream fout;
 int topping,slice,sides,crust,extras;
 char c;
