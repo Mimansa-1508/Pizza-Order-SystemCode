@@ -2,28 +2,19 @@
 #include<conio.h>
 #include<stdlib.h>
 #include<fstream>
+
 using namespace std;
 
-
-int main() {
-     cout<<"Welcome to Pizzeria!";
-     cout<<"\nPress Enter to continue";
-     getch();
-    //system("cls");
-    details();
-    ffile();
-	return 0;
-  }
-  
-  void details()
+ void details()
 {
 string name,address;
 int phno;
-cout << "\nEnter your name :";  
-getline(cin,name); 
+cout << "\nEnter your name :";
+getline(cin,name);
 cout<<"\nEnter phone number:";
 cin>>phno;
 cout<<"\nEnter address:";
+cin.ignore();
 getline(cin,address);
 }
 
@@ -31,9 +22,9 @@ void ffile(){
 ofstream fout;
 int topping,slice,sides,crust,extras;
 char c;
-fout.open("order.txt",ios::app);
+fout.open("order.txt");
 do{
-cout<<"Menu\nChoose your desired topping:\n1.Paneer\tRs.10\n2.Capsicum\tRs.3\n3.Mushroom\tRs.5\n4.Jalapeno\tRs.8\n5.Olives\tRs.8";
+cout<<"\nMenu\nChoose your desired topping:\n1.Paneer\tRs.10\n2.Capsicum\tRs.3\n3.Mushroom\tRs.5\n4.Jalapeno\tRs.8\n5.Olives\tRs.8";
 cout<<"\n6.Corn\tRs.4\n7.Onion\tRs.7\n8.Tomato\tRs.3\n9.Sausage\tRs.10\n10.Pepperoni\tRs.10\n";
 cin>>topping;
 
@@ -166,7 +157,18 @@ case 5:
 cout<<"\nDo you want to add more condiments?\nType y to continue or if you have finished type n:";
 cin>>c;
 }while(c=='y'||c=='Y');
-return 0;
+
 }
+
+int main() {
+     cout<<"Welcome to Pizzeria!";
+     cout<<"\nPress Enter to continue";
+     getch();
+    system("cls");
+    details();
+    ffile();
+	return 0;
+  }
+
 
 
