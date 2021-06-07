@@ -1,0 +1,13 @@
+#include <iostream>
+#include<conio.h>
+#include<stdlib.h>
+using namespace std;
+
+
+int main() {
+     cout<<"Welcome to Pizzeria!";
+     cout<<"\nPress Enter to continue";
+     getch();
+    system("cls");
+	return 0;
+  }
