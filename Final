@@ -31,7 +31,7 @@ void ffile(){
 ofstream fout;
 int topping,slice,sides,crust,extras;
 char c;
-fout.open("order",ios::app);
+fout.open("order.txt",ios::app);
 do{
 cout<<"Menu\nChoose your desired topping:\n1.Paneer\tRs.10\n2.Capsicum\tRs.3\n3.Mushroom\tRs.5\n4.Jalapeno\tRs.8\n5.Olives\tRs.8";
 cout<<"\n6.Corn\tRs.4\n7.Onion\tRs.7\n8.Tomato\tRs.3\n9.Sausage\tRs.10\n10.Pepperoni\tRs.10\n";
