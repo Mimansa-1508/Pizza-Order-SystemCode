@@ -4,11 +4,10 @@
 #include<fstream>
 
 using namespace std;
-
- void details()
-{
 string name,address;
 int phno;
+ void details()
+{
 cout << "\nEnter your name :";
 getline(cin,name);
 cout<<"\nEnter phone number:";
@@ -18,7 +17,7 @@ cin.ignore();
 getline(cin,address);
 }
 
-void ffile(){
+void menu(){
 ofstream fout;
 int topping,slice,sides,crust,extras;
 char c;
@@ -160,15 +159,27 @@ cin>>c;
 
 }
 
+void fbill(){
+system("cls");
+const int n=100;
+char line[n];
+ifstream fin;
+cout<<"\nBILL\nName:"<<name<<"\nContact number:"<<phno<<"\nAddress:"<<address<<"\nYour Order:";
+fin.open("order.txt");
+while(fin){
+
+ fin.getline(line,n);
+ cout<<"\n"<<line;
+}
+}
+
 int main() {
      cout<<"Welcome to Pizzeria!";
      cout<<"\nPress Enter to continue";
      getch();
     system("cls");
     details();
-    ffile();
+    menu();
+    fbill();
 	return 0;
   }
-
-
-
