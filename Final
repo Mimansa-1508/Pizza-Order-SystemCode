@@ -2,10 +2,55 @@
 #include<conio.h>
 #include<stdlib.h>
 #include<fstream>
+#include<malloc.h>
 
 using namespace std;
 string name,address;
 int phno;
+struct node
+{
+int data;
+struct node *next;
+};
+struct node *start = NULL;
+struct node *create_ll(struct node *,int num);
+struct node *delete_list(struct node *);
+
+struct node *create_ll(struct node *start,int num)
+{
+struct node *new_node, *ptr;
+new_node = (struct node*)malloc(sizeof(struct node));
+new_node -> data=num;
+if(start==NULL)
+{
+new_node -> next = NULL;
+start = new_node;
+}
+else
+{
+ptr=start;
+while(ptr->next!=NULL)
+ptr=ptr->next;
+ptr->next = new_node;
+new_node->next=NULL;
+}
+return start;
+}
+
+struct node *delete_list(struct node *start)
+{
+struct node *ptr; 
+if(start!=NULL){
+ptr=start;
+while(ptr != NULL)
+{
+cout<<"\n %d is to be deleted next”<< ptr -> data;
+start = delete_beg(ptr);
+ptr = start;
+}
+}
+return start;
+}
  void details()
 {
 cout << "\nEnter your name :";
@@ -30,40 +75,50 @@ cin>>topping;
 switch(topping){
 case 1:
     fout<<"Paneer-Rs.10\n";
+    create_ll(start,10);
     break;
 
 case 2:
     fout<<"Capsicum-Rs.3\n";
+    create_ll(start,3);
     break;
 case 3:
     fout<<"Mushroom-Rs.5\n";
+    create_ll(start,5);
     break;
 
 case 4:
     fout<<"Jalapeno-Rs.8\n";
+    create_ll(start,8);
     break;
 case 5:
     fout<<"Olives-Rs.8\n";
+    create_ll(start,8);
     break;
 
 case 6:
     fout<<"Corn-Rs.4\n";
+    create_ll(start,4);
     break;
 
 case 7:
     fout<<"Onion-Rs.7\n";
+    create_ll(start,7);
     break;
 
 case 8:
     fout<<"Tomato-Rs.3\n";
+    create_ll(start,3);
     break;
 
 case 9:
     fout<<"Sausage-Rs.10\n";
+    create_ll(start,10);
     break;
 
 case 10:
     fout<<"Pepperoni-Rs.10\n";
+    create_ll(start,10);
     break;
 
 default: cout<<"\nWrong choice!";
@@ -78,14 +133,17 @@ cin>>slice;
 switch(slice){
 case 1:
       fout<<"Small-Rs.100\n";
+      create_ll(start,100);
       break;
 
 case 2:
     fout<<"Medium-Rs.200\n";
+    create_ll(start,200);
     break;
 
 case 3:
     fout<<"Large-Rs.400\n";
+    create_ll(start,400);
     break;
 
 default:cout<<"\nWrong choice!";
@@ -97,12 +155,15 @@ cin>>crust;
 switch(crust){
 case 1:
     fout<<"Handtossed-Rs.0\n";
+    create_ll(start,0);
     break;
 case 2:
     fout<<"Thin Crust-Rs.20\n";
+    create_ll(start,20);
     break;
 case 3:
     fout<<"Cheese burst-Rs.50\n";
+    create_ll(start,50);
     break;
 default:cout<<"\nWrong choice!";
          break;
@@ -114,16 +175,20 @@ cin>>sides;
 switch(sides){
 case 1:
     fout<<"Pasta-Rs.80\n";
+    create_ll(start,80);
     break;
 
 case 2:
     fout<<"Choco Lava Cake-Rs.70\n";
+    create_ll(start,70);
     break;
 case 3:
     fout<<"Garlic bread-Rs.100\n";
+    create_ll(start,100);
     break;
 case 4:
     fout<<"Pepsi-Rs.60\n";
+    create_ll(start,60);
     break;
 case 5: break;
 }
