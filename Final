@@ -224,6 +224,19 @@ cin>>c;
 
 }
 
+int calc(struct node *start)
+{
+struct node *ptr;
+ptr = start;
+int sum=0;
+while(ptr != NULL)
+{
+sum+= ptr -> data;
+ptr = ptr -> next;
+}
+return sum;
+}
+
 void fbill(){
 system("cls");
 const int n=100;
@@ -239,6 +252,7 @@ while(fin){
 }
 
 int main() {
+char c;
      cout<<"Welcome to Pizzeria!";
      cout<<"\nPress Enter to continue";
      getch();
@@ -246,5 +260,21 @@ int main() {
     details();
     menu();
     fbill();
+    int sum=calc(start);
+    cout<<"Total amount:"<<sum;
+    int budget;
+    cout<<"Your budget:";
+    cin>>budget;
+    if(sum>budget)
+    cout<<"Do you want to change the order?\nType y to continue or if you have finished type n:";
+    cin>>c;
+    if(c=='y')
+    {
+     details();
+     menu();
+     fbill();
+     sum=calc(start);
+     cout<<"Total amount:"<<sum;
+    }
 	return 0;
   }
