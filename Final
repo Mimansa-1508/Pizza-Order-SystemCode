@@ -7,49 +7,45 @@
 using namespace std;
 string name,address;
 int phno;
-struct node
+class Node
 {
+public:
 int data;
-struct node *next;
+Node *next;
 };
-struct node *start = NULL;
-struct node *create_ll(struct node *,int num);
-struct node *delete_list(struct node *);
+ Node *start = NULL;
+void create_ll(Node **,int num);
+void delete_list(Node **);
 
-struct node *create_ll(struct node *start,int num)
+void create_ll(Node **start,int num)
 {
-struct node *new_node, *ptr;
-new_node = (struct node*)malloc(sizeof(struct node));
+Node *new_node=new Node();
+Node *last= *start;
 new_node -> data=num;
-if(start==NULL)
-{
 new_node -> next = NULL;
-start = new_node;
-}
-else
-{
-ptr=start;
-while(ptr->next!=NULL)
-ptr=ptr->next;
-ptr->next = new_node;
-new_node->next=NULL;
-}
-return start;
+   if(*start==NULL){
+    *start = new_node;
+    return;
+  }
+ while (last->next != NULL)
+        last = last->next;
+
+last->next = new_node;
+return;
 }
 
-struct node *delete_list(struct node *start)
+void delete_list(Node **start)
 {
-struct node *ptr; 
-if(start!=NULL){
-ptr=start;
-while(ptr != NULL)
-{
-cout<<"\n %d is to be deleted next”<< ptr -> data;
-start = delete_beg(ptr);
-ptr = start;
-}
-}
-return start;
+Node* current = *start;
+    Node* next = NULL;
+
+    while (current != NULL)
+    {
+        next = current->next;
+        free(current);
+        current = next;
+    }
+    *start = NULL;
 }
  void details()
 {
@@ -75,50 +71,50 @@ cin>>topping;
 switch(topping){
 case 1:
     fout<<"Paneer-Rs.10\n";
-    create_ll(start,10);
+    create_ll(&start,10);
     break;
 
 case 2:
     fout<<"Capsicum-Rs.3\n";
-    create_ll(start,3);
+    create_ll(&start,3);
     break;
 case 3:
     fout<<"Mushroom-Rs.5\n";
-    create_ll(start,5);
+    create_ll(&start,5);
     break;
 
 case 4:
     fout<<"Jalapeno-Rs.8\n";
-    create_ll(start,8);
+    create_ll(&start,8);
     break;
 case 5:
     fout<<"Olives-Rs.8\n";
-    create_ll(start,8);
+    create_ll(&start,8);
     break;
 
 case 6:
     fout<<"Corn-Rs.4\n";
-    create_ll(start,4);
+    create_ll(&start,4);
     break;
 
 case 7:
     fout<<"Onion-Rs.7\n";
-    create_ll(start,7);
+    create_ll(&start,7);
     break;
 
 case 8:
     fout<<"Tomato-Rs.3\n";
-    create_ll(start,3);
+    create_ll(&start,3);
     break;
 
 case 9:
     fout<<"Sausage-Rs.10\n";
-    create_ll(start,10);
+    create_ll(&start,10);
     break;
 
 case 10:
     fout<<"Pepperoni-Rs.10\n";
-    create_ll(start,10);
+    create_ll(&start,10);
     break;
 
 default: cout<<"\nWrong choice!";
@@ -133,17 +129,17 @@ cin>>slice;
 switch(slice){
 case 1:
       fout<<"Small-Rs.100\n";
-      create_ll(start,100);
+      create_ll(&start,100);
       break;
 
 case 2:
     fout<<"Medium-Rs.200\n";
-    create_ll(start,200);
+    create_ll(&start,200);
     break;
 
 case 3:
     fout<<"Large-Rs.400\n";
-    create_ll(start,400);
+    create_ll(&start,400);
     break;
 
 default:cout<<"\nWrong choice!";
@@ -155,15 +151,15 @@ cin>>crust;
 switch(crust){
 case 1:
     fout<<"Handtossed-Rs.0\n";
-    create_ll(start,0);
+    create_ll(&start,0);
     break;
 case 2:
     fout<<"Thin Crust-Rs.20\n";
-    create_ll(start,20);
+    create_ll(&start,20);
     break;
 case 3:
     fout<<"Cheese burst-Rs.50\n";
-    create_ll(start,50);
+    create_ll(&start,50);
     break;
 default:cout<<"\nWrong choice!";
          break;
@@ -175,20 +171,20 @@ cin>>sides;
 switch(sides){
 case 1:
     fout<<"Pasta-Rs.80\n";
-    create_ll(start,80);
+    create_ll(&start,80);
     break;
 
 case 2:
     fout<<"Choco Lava Cake-Rs.70\n";
-    create_ll(start,70);
+    create_ll(&start,70);
     break;
 case 3:
     fout<<"Garlic bread-Rs.100\n";
-    create_ll(start,100);
+    create_ll(&start,100);
     break;
 case 4:
     fout<<"Pepsi-Rs.60\n";
-    create_ll(start,60);
+    create_ll(&start,60);
     break;
 case 5: break;
 }
@@ -203,17 +199,21 @@ cin>>extras;
 switch(extras){
 case 1:
     fout<<"Cheese-Rs.20\n";
+    create_ll(&start,20);
     break;
 
 case 2:
     fout<<"Oregano-Rs.10\n";
+    create_ll(&start,10);
     break;
 case 3:
     fout<<"Chilli Flakes-Rs.10\n";
+    create_ll(&start,10);
     break;
 
 case 4:
     fout<<"Ketchup-Rs.10\n";
+    create_ll(&start,10);
     break;
 case 5:
     break;
@@ -224,10 +224,9 @@ cin>>c;
 
 }
 
-int calc(struct node *start)
+int calc(Node **start)
 {
-struct node *ptr;
-ptr = start;
+Node *ptr= *start;
 int sum=0;
 while(ptr != NULL)
 {
@@ -253,6 +252,7 @@ while(fin){
 
 int main() {
 char c;
+int budget;
      cout<<"Welcome to Pizzeria!";
      cout<<"\nPress Enter to continue";
      getch();
@@ -260,22 +260,22 @@ char c;
     details();
     menu();
     fbill();
-    int sum=calc(start);
+    int sum=calc(&start);
     cout<<"Total amount:"<<sum;
-    int budget;
-    cout<<"Your budget:";
-    cin>>budget;
+    cout<<"\nEnter your budget:";
+     cin>>budget;
     if(sum>budget)
     cout<<"Do you want to change the order?\nType y to continue or if you have finished type n:";
     cin>>c;
     if(c=='y')
     {
-     delete_list(start);
+     delete_list(&start);
      details();
      menu();
      fbill();
-     sum=calc(start);
+     sum=calc(&start);
      cout<<"Total amount:"<<sum;
     }
 	return 0;
   }
+
