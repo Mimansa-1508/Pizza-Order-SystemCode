@@ -251,8 +251,7 @@ while(fin){
 }
 
 int main() {
-char c;
-int budget;
+
      cout<<"Welcome to Pizzeria!";
      cout<<"\nPress Enter to continue";
      getch();
@@ -261,21 +260,7 @@ int budget;
     menu();
     fbill();
     int sum=calc(&start);
-    cout<<"Total amount:"<<sum;
-    cout<<"\nEnter your budget:";
-     cin>>budget;
-    if(sum>budget)
-    cout<<"Do you want to change the order?\nType y to continue or if you have finished type n:";
-    cin>>c;
-    if(c=='y')
-    {
-     delete_list(&start);
-     details();
-     menu();
-     fbill();
-     sum=calc(&start);
-     cout<<"Total amount:"<<sum;
-    }
+    cout<<"Total amount to be paid:"<<sum;
 	return 0;
   }
 
